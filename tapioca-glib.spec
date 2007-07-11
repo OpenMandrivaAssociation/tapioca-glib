@@ -19,6 +19,8 @@ BuildRequires:  pkgconfig
 BuildRequires:  libdbus-devel >= 0.36
 BuildRequires:  libdbus-glib-devel >= 0.36
 Requires:       %{libname} = %{version}
+Obsoletes:	tapioca < 0.14.0.1
+Provides:	tapioca = %{version}-%{release}
 
 %description
 
