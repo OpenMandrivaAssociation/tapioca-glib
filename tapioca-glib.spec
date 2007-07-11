@@ -88,17 +88,21 @@ rm -rf $RPM_BUILD_ROOT
 
 %postun -n %{libname} -p /sbin/ldconfig
 
-#%files
-#%defattr(-,root,root)
-#%{_bindir}/tapiocad-0.3
-#%{_datadir}/dbus-1/services/org.tapioca.Server.service
+%files
+%defattr(-,root,root)
+%doc AUTHORS COPYING ChangeLog README RELEASE
+%doc %{_datadir}/gtk-doc/html/tapioca-glib-client
+%doc %{_datadir}/gtk-doc/html/tapioca-glib-core
 
 %files -n %{libname}
+%doc COPYING
 %{_libdir}/*.so.*
 
 %files -n %{develname}
+%doc COPYING README
 %defattr(-,root,root)
 %{_libdir}/*.la
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*.pc
+%{_includedir}/*/tapioca/*.h
 %{_includedir}/*/tapioca/*/*.h
