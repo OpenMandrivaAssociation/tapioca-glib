@@ -1,7 +1,7 @@
 %define libname_orig lib%{name}
 %define libname %mklibname %{name} 0
 
-%define	name tapioca
+%define	name tapioca-glib
 %define	version 0.3.9
 %define	release %mkrel 1
 
