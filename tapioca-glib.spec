@@ -1,8 +1,9 @@
 %define libname_orig lib%{name}
-%define libname %mklibname %{name} 0
+%define libname %mklibname tapioca 0
+%define develname %mklibname -d tapioca
 
 %define	name tapioca-glib
-%define	version 0.3.9
+%define	version 0.14.0.1
 %define	release %mkrel 1
 
 Summary:	A framework for Voice over IP (VoIP) and Instant Messaging (IM)		
@@ -17,7 +18,7 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:  pkgconfig
 BuildRequires:  libdbus-devel >= 0.36
 BuildRequires:  libdbus-glib >= 0.36
-Requires:       %{libname}
+Requires:       %{libname} = %{version}
 
 %description
 
@@ -53,14 +54,15 @@ Requires:	%name = %version-%release
 Library for %name
 
 
-%package -n %{libname}-devel
+%package -n %{develname}
 Summary:	Headers of %name for development
 Group:		Development/C
 Requires:	%{libname} = %{version}
 Provides:	%{name}-devel = %{version}-%{release}
 Provides:	%{libname_orig}-devel = %{version}-%{release}
+Obsoletes:	%{libname}-devel
 
-%description -n %{libname}-devel
+%description -n %{develname}
 Headers of %{name} for development.
 
 
@@ -100,7 +102,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libtapioca-base-0.3.so.0
 %{_libdir}/libtapioca-base-0.3.so.0.0.0
 
-%files -n %{libname}-devel
+%files -n %{develname}
 %defattr(-,root,root)
 %{_libdir}/libtapioca-core-0.3.la
 %{_libdir}/libtapioca-core-0.3.so
@@ -114,6 +116,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/tapioca-0.3/tapioca/client/*.h
 %{_includedir}/tapioca-0.3/tapioca/core/*.h
 %{_includedir}/tapioca-0.3/tapioca/base/*.h
-
-
-
