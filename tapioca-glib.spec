@@ -17,7 +17,7 @@ Source0:	http://ovh.dl.sourceforge.net/sourceforge/tapioca-voip/%{name}-%{versio
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:  pkgconfig
 BuildRequires:  libdbus-devel >= 0.36
-BuildRequires:  libdbus-glib >= 0.36
+BuildRequires:  libdbus-glib-devel >= 0.36
 Requires:       %{libname} = %{version}
 
 %description
@@ -88,31 +88,17 @@ rm -rf $RPM_BUILD_ROOT
 
 %postun -n %{libname} -p /sbin/ldconfig
 
-
-%files
-%defattr(-,root,root)
-%{_bindir}/tapiocad-0.3
-%{_datadir}/dbus-1/services/org.tapioca.Server.service
+#%files
+#%defattr(-,root,root)
+#%{_bindir}/tapiocad-0.3
+#%{_datadir}/dbus-1/services/org.tapioca.Server.service
 
 %files -n %{libname}
-%{_libdir}/libtapioca-client-0.3.so.0
-%{_libdir}/libtapioca-client-0.3.so.0.0.0
-%{_libdir}/libtapioca-core-0.3.so.0
-%{_libdir}/libtapioca-core-0.3.so.0.0.0
-%{_libdir}/libtapioca-base-0.3.so.0
-%{_libdir}/libtapioca-base-0.3.so.0.0.0
+%{_libdir}/*.so.*
 
 %files -n %{develname}
 %defattr(-,root,root)
-%{_libdir}/libtapioca-core-0.3.la
-%{_libdir}/libtapioca-core-0.3.so
-%{_libdir}/libtapioca-client-0.3.la
-%{_libdir}/libtapioca-client-0.3.so
-%{_libdir}/libtapioca-base-0.3.la
-%{_libdir}/libtapioca-base-0.3.so
-%{_libdir}/pkgconfig/tapioca-client-0.3.pc
-%{_libdir}/pkgconfig/tapioca-core-0.3.pc
-%{_libdir}/pkgconfig/tapioca-base-0.3.pc
-%{_includedir}/tapioca-0.3/tapioca/client/*.h
-%{_includedir}/tapioca-0.3/tapioca/core/*.h
-%{_includedir}/tapioca-0.3/tapioca/base/*.h
+%{_libdir}/*.la
+%{_libdir}/*.so
+%{_libdir}/pkgconfig/*.pc
+%{_includedir}/*/tapioca/*/*.h
