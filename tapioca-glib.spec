@@ -23,7 +23,6 @@ Obsoletes:	tapioca < 0.14.0.1
 Provides:	tapioca = %{version}-%{release}
 
 %description
-
 Tapioca is a framework for Voice over IP (VoIP) and 
 Instant Messaging (IM). Its main goal is to provide 
 an easy way for developing and using VoIP and IM 
