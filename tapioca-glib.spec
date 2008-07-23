@@ -4,7 +4,7 @@
 
 %define	name tapioca-glib
 %define	version 0.14.0.1
-%define	release %mkrel 1
+%define	release %mkrel 3
 
 Summary:	A framework for Voice over IP (VoIP) and Instant Messaging (IM)		
 Name:		%{name}
