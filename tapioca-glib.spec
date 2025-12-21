@@ -15,6 +15,11 @@ Url:		https://tapioca-voip.sourceforge.net/wiki/index.php/Tapioca
 Group:		Networking/Instant messaging
 Source0:	http://ovh.dl.sourceforge.net/sourceforge/tapioca-voip/%{name}-%{version}.tar.bz2
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:  pkgconfig
 BuildRequires:  libdbus-devel >= 0.36
 BuildRequires:  libdbus-glib-devel >= 0.36
